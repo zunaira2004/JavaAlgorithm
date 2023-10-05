@@ -5,26 +5,28 @@ import java.util.List;
 
 public class MergeOverlappingInterval {
 
-    List<int[]> intervals=new ArrayList<>();
-   void mergeIntervals(List<int[]> interval)
+   public void mergeIntervals(List<int[]> interval)
    {
-
-       for(int i=0;i<interval.size();i++)
+       for(int i=0;i<interval.size()-1;i++)
        {
-           int[] singleInterval=interval.get(i);
-           if(i< interval.size())
+           if(interval.get(i)[1]>=interval.get(i+1)[0])
            {
-               int[] nextInterval=interval.get(i+1);
-               if(singleInterval[1]>nextInterval[0])
+               if(interval.get(i)[1]<interval.get(i+1)[1])
                {
-                   singleInterval[1]=nextInterval[1];
-                   interval.remove(i+1);
+                   interval.get(i)[1]=interval.get(i+1)[1];
                }
+               interval.remove(i+1);
+               i--;
            }
-           else if(i-1== interval.size())
-           {
-               break;
-           }
+
+       }
+       this.display(interval);
+   }
+   public void display(List<int[]> interval)
+   {
+       for(int i=0;i< interval.size();i++)
+       {
+           System.out.println("{"+interval.get(i)[0]+","+interval.get(i)[1]+"}");
        }
    }
 }
