@@ -1,10 +1,12 @@
+package GenericStack;
+
 import java.util.Scanner;
 
-public class Main {
+public class GenericStackMain {
     public static void main(String[] args) {
 
         int size=0;
-        GenericStack<Integer> o=new GenericStack<>();
+        GenericStack<Integer> o= new GenericStack<Integer>();
         Scanner s=new Scanner(System.in);
         System.out.println("Enter size of your stack");
         size=s.nextInt();

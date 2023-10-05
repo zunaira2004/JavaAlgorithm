@@ -1,3 +1,5 @@
+package GenericStack;
+
 public class GenericStack<T> {
     Node<T> top;
     int size;
@@ -41,7 +43,7 @@ public class GenericStack<T> {
     }
     void display()
     {
-        Node<T> node=new Node<>();
+        Node<T> node= new Node<T>();
         node=top;
         while(node!=null)
         {
